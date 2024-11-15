@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <div>
           <Link to="/" className="text-lg font-semibold">
-            Profile Manager
+            User Profile Manager
           </Link>
         </div>
         <div>

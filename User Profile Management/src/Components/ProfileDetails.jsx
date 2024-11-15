@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setSelectedProfile } from "../features/UserProfile/ProfileSlice";
-import Map from "./Map";
+import MapContainer from "./MapContainer";
 
 const ProfileDetails = () => {
   const { id } = useParams();
@@ -39,29 +39,29 @@ const ProfileDetails = () => {
             <p className="text-gray-600">{profile.description}</p>
           </div>
         </div>
+        <div>
+          <span className="font-medium">Hobbies/Interests:</span>
+          <p className="text-gray-600">{profile.interests}</p>
+          <span className="font-medium">Contact Info:</span>
+          <p className="text-gray-600">{profile.contactInfo}</p>
+        </div>
         <div className="space-y-2">
+          <span className="font-medium">Coordinates:</span>
           <p>
-            <span className="font-medium">Address:</span>{" "}
-            {profile.address.street}, {profile.address.city},{" "}
-            {profile.address.state}
-          </p>
-          <p>
-            <span className="font-medium">Coordinates:</span> Lat:{" "}
-            {profile.address.coordinates.lat}, Lng:{" "}
+            Lat: {profile.address.coordinates.lat}, Lng:{" "}
             {profile.address.coordinates.lng}
           </p>
-          {/* Add more profile details as needed */}
         </div>
-        <button
-          onClick={handleBackToList}
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-        >
-          Back to Profiles
-        </button>
       </div>
       <div className="sticky top-4">
-        <Map selectedProfile={profile} />
+        <MapContainer selectedProfile={profile} />
       </div>
+      <button
+        onClick={handleBackToList}
+        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+      >
+        Back to Profiles
+      </button>
     </div>
   );
 };

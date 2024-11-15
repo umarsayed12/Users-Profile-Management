@@ -5,6 +5,8 @@ const initialState = {
         name: '',
         description: '',
         photo: null,
+        contactInfo:'',
+        interests:'',
         address: {
             street: '',
             city: '',

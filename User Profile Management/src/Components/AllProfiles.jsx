@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setSelectedProfile } from "../features/UserProfile/ProfileSlice";
-import Map from "./Map";
+import MapContainer from "./MapContainer";
 import SearchBar from "./SearchBar";
 import LoadingSpinner from "./LoadingSpinner";
 
@@ -27,22 +27,26 @@ const AllProfiles = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-6">
-      <div className="md:w-1/2">
+    <div className="flex flex-col lg:flex-row gap-6">
+      <div className="md:w-full">
         <SearchBar value={searchedItem} onChange={setSearchedItem} />
         <div className="grid gap-4 mt-4">
           {filteredProfiles.map((profile) =>
             profile.id !== 1 ? (
               <div key={profile.id} className="bg-white p-4 rounded-lg shadow">
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col md:flex-row items-center gap-4">
                   <img
                     src={profile.photo}
                     alt={profile.name}
                     className="w-16 h-16 rounded-full object-cover"
                   />
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold">{profile.name}</h3>
-                    <p className="text-gray-600">{profile.description}</p>
+                    <h3 className="text-xl font-semibold text-center md:text-start">
+                      {profile.name}
+                    </h3>
+                    <p className="text-gray-600 text-center md:text-start text-wrap">
+                      {profile.description}
+                    </p>
                   </div>
                   <div className="flex gap-2">
                     <button
@@ -66,11 +70,11 @@ const AllProfiles = () => {
           )}
         </div>
       </div>
-      <div className="md:w-1/2 sticky top-4">
+      <div className="md:w-full sticky top-4">
         {loading ? (
           <LoadingSpinner />
         ) : (
-          <Map selectedProfile={selectedProfile} />
+          <MapContainer selectedProfile={selectedProfile} />
         )}
       </div>
     </div>

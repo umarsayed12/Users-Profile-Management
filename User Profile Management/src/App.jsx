@@ -7,12 +7,10 @@ import ProfileDetails from "./Components/ProfileDetails";
 import AdminDashboard from "./Components/AdminDashboard";
 import Navbar from "./Components/Navbar";
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <Provider store={store}>
       <Router>
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-slate-800">
           <Navbar />
           <div className="container mx-auto px-4 py-8">
             <Routes>
