@@ -51,3 +51,7 @@ This project is a web application developed using **React** that enables users t
 - **Data Management**: Admin panel for CRUD operations on profiles
 - **Search**: Efficient search and filter functionality
 - **Error Handling**: Graceful handling of exceptions
+
+# Clone this repository:
+   ```bash
+https://github.com/umarsayed12/Users-Profile-Management.git
